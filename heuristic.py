@@ -1,3 +1,6 @@
+from dataclasses import dataclass
+from typing import List
+ 
 cost_function = {
         "cash_counter" : "1",
         "biscuits" : "0",
@@ -8,6 +11,25 @@ cost_function = {
         "chips" : "3",
         "cold_drinks": "5 + 5i"
 }
+
+@dataclass
+class Item:
+    name: str
+    cost: complex  # position in 2D space
+
+@dataclass
+class Order:
+    customer_id: int
+    items: List[str]
+    priority: float = 0.0  # epsilon value
+    arrival_time: float = 0.0
+
+@dataclass
+class Counter:
+    id: int
+    location: complex
+    cost_heuristic: dict  # item -> cost
+    queue: List[Order] = None
 
 def shopkeeper(name):
      // Determine which item to choose based on cost  

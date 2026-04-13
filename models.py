@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 
 @dataclass
@@ -18,8 +18,9 @@ class Counter:
     id: int
     location: complex
     item_offset: complex
+    item_by_customer: dict = field(default_factory=dict)
     queue: list[Order] = None
-    item_by_customer: dict = {}
+
 
 # Per-counter: just the offset
 counter_a = Counter(

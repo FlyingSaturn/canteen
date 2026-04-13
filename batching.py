@@ -2,13 +2,13 @@ from models import Order
 
 ITEMS = {
         "cash_counter" : 1,
-        "biscuits" : 0,
-        "sanitary_napkins": 2j,
-        "chewing_gums" : 2j,
+        "biscuits" : 1.5j,
+        "sanitary_napkins": 3j,
+        "chewing_gums" : 3j,
         "chocolates" : 0,
-        "ice-cream" : 1.5 + j,
-        "chips" : 3,
-        "cold_drinks": 5 + j
+        "ice-cream" : 4 + 1.5j,
+        "chips" : 6,
+        "cold_drinks": 6.5 + 1.5j
 }
 
 

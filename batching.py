@@ -1,14 +1,20 @@
 from models import Order
-
 ITEMS = {
-        "cash_counter" : 1,
         "biscuits" : 1.5j,
-        "sanitary_napkins": 3j,
-        "chewing_gums" : 3j,
-        "chocolates" : 0,
+        "bakery_goods" : 0,
+        "cash_counter" : 1,
+        "chewing_gums" : 4j,
+        "chocolates" : -1j,
+        "cold_drinks": 7 + 1.5j,
+        "hotdog" : 3j,
         "ice-cream" : 4 + 1.5j,
-        "chips" : 6,
-        "cold_drinks": 6.5 + 1.5j
+        "kurkure_chips" : 6,
+        "lollipop": 0.5 + 4j,
+        "makhana": 0.5 + 3j,
+        "orbit": 0.6 + 3.5j,
+        "phoochka_chips": 0.5,
+        "sandwich" : 3j,
+        "sanitary_napkins": 4j,
 }
 
 
@@ -35,6 +41,3 @@ def batch_by_item(queue: list, item_by_customer: dict, counter_location: complex
             )
 
     return dict(sorted_items) # because item_by_customer is dict, dict preserves insertion order
-            
-        
-

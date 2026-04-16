@@ -10,7 +10,7 @@ def efficiency_score(item_name: str, item_position: complex, counter_location: c
     return efficiency
 
 
-def batch_by_item(queue: list, item_by_customer: dict, counter_location: complex) -> dict:
+def update_item_map(queue: list, item_by_customer: dict):
     # queue is a list of Order objects
     for order in queue:
         for item_name, quantity in order.items.items():
@@ -18,9 +18,10 @@ def batch_by_item(queue: list, item_by_customer: dict, counter_location: complex
                 item_by_customer[item_name] = {}
             item_by_customer[item_name][order.customer_id] = quantity
 
+
+def sort_by_item(item_by_customer: dict, counter_location: complex) -> dict:
     sorted_items = sorted(
             item_by_customer.items(),
             key=lambda x: efficiency_score(x[0], ITEMS[x[0]], counter_location, item_by_customer)
             )
-
     return dict(sorted_items) # because item_by_customer is dict, dict preserves insertion order

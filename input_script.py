@@ -1,6 +1,5 @@
 from random import choice, sample
 from config import ITEMS
-import pprint
 
 
 def generate_orders(num_customers=None):

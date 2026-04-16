@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, jsonify
 from models import Order, Counter
-from batching import batch_by_item
 from config import ITEMS, COUNTER_A_LOCATION, COUNTER_B_LOCATION
 from input_script import generate_orders
 from sim import Simulation
@@ -28,18 +27,19 @@ def simulate():
         counter_b_orders = [Order(split_point + i, raw_orders[split_point + i]) 
                            for i in range(len(raw_orders) - split_point)]
 
+        # Making instances for the counters
         counter_a = Counter(
             id=1,
-            location=0+0j,
+            location=COUNTER_A_LOCATION,
             queue=counter_a_orders
         )
-        
         counter_b = Counter(
             id=2,
-            location=0+3j,
+            location=COUNTER_B_LOCATION,
             queue=counter_b_orders
         )
-
+        
+        # Simulating those instances
         sim = Simulation(counter_a, counter_b)
         sim.run_counter(counter_a)
         sim.run_counter(counter_b)

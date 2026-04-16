@@ -1,11 +1,5 @@
 from dataclasses import dataclass, field
 
-
-@dataclass
-class Item:
-    name: str
-    cost: complex  # position in 2D space
-
 @dataclass
 class Order:
     customer_id: int
